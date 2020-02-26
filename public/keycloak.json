@@ -1,0 +1,9 @@
+{
+    "realm": "orga_realm",
+    "auth-server-url": "http://localhost:8282/auth/",
+    "ssl-required": "external",
+    "resource": "ORGA-APP",
+    "public-client": true,
+    "confidential-port": 0,
+    "enable-cors": true
+  }
