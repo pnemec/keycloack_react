@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import UserInfo from './UserInfo';
+import Logout from './Logout';
 import Keycloak from 'keycloak-js';
 
 class Secured extends Component {
@@ -16,24 +18,22 @@ class Secured extends Component {
   }
 
   render() {
-    if (this.state.keycloak) {
-      if (this.state.authenticated) return (
+    if(this.state.keycloak) {
+      if(this.state.authenticated) return (
         <div>
-          <p>This is a Keycloak-secured component of your application. You shouldn't be able
-          to see this unless you've authenticated with Keycloak.</p>
+          <p>
+            This is a Keycloak-secured component of your application. You shouldn't be able to see this
+            unless you've authenticated with Keycloak.
+          </p>
+          <UserInfo keycloak={this.state.keycloak} />
+          <Logout keycloak={this.state.keycloak} />
         </div>
       ); else return (<div>Unable to authenticate!</div>)
     }
     return (
-      <div>Initializing Keycloak...
-
-        <div>
-            ===> {JSON.stringify(this.state)}
-        </div>
-
-
-      </div>
+      <div>Initializing Keycloak...</div>
     );
   }
 }
+
 export default Secured;
